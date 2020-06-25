@@ -1,0 +1,43 @@
+h1 {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+body {
+  background-color: honeydew;
+  font-family: "Merriweather", serif;
+}
+.library {
+  background-color: cadetblue;
+  margin: 50px;
+  padding: 50px;
+  border-radius: 15px;
+  height: auto;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.book {
+  padding: 20px;
+  text-align: center;
+}
+img {
+  height: 200px;
+  object-fit: scale-down;
+  border: 2px solid black;
+}
+span {
+  font-weight: bold;
+  color: honeydew;
+}
+h2 {
+  text-align: center;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+input {
+  width: 200px;
+  margin: 15px;
+}

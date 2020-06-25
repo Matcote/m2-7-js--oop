@@ -9,5 +9,37 @@
 //    as the amount of time increases. They should also become less happy.
 //
 //    It's up to you to decide how quickly these values should change.
+class Cat {
+  constructor(name, breed) {
+    this.name = name;
+    this.breed = breed;
+    this.species = "cat;";
+    this.tiredness = 0;
+    this.hunger = 0;
+    this.loneliness = 0;
+    this.happiness = 0;
+  }
+  sleep = (hours) => {
+    this.tiredness -= 5 * hours;
+    this.happiness += 20;
+  };
+  eat = (kibbles) => {
+    this.hunger -= kibbles / 5;
+    this.happiness += 15;
+  };
+  play = (minutes) => {
+    this.loneliness -= 3 * minutes;
+    this.happiness += 25;
+  };
+  wait = (minutes) => {
+    this.tiredness += 4 * minutes;
+    this.loneliness += 3 * minutes;
+    this.happiness += 2 * minutes;
+    this.hunger += 1 * minutes;
+  };
+}
+let boots = new Cat("boots", "Siamese");
 
 // B) Make Boots wait 20 minutes and call then console.log(boots);
+boots.wait(20);
+console.log(boots);

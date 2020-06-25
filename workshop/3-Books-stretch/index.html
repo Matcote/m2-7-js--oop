@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Matthew's Library</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat:wght@600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1>Matthew's Library</h1>
+    <div class="library"></div>
+    <h2>Add a book to the collection!</h2>
+    <form id="form">
+      <label for="title">Title:</label>
+      <input type="text" id="title" required />
+      <label for="author">Author:</label>
+      <input type="text" id="author" required />
+      <label for="genre">Genre:</label>
+      <input type="text" id="genre" required />
+      <label for="link">Link to cover:</label>
+      <input type="text" id="link" required />
+      <input type="button" value="Add" onclick="addBook()" />
+    </form>
+    <script src="app.js"></script>
+  </body>
+</html>

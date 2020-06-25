@@ -54,6 +54,11 @@ Wait. What other types do you know?
 
 ```js
 // How do we "create" these types?
+-234 - "bacon",
+  "bacon",
+  `bacon` - true,
+  false - [12, 12, 12] - { key: value } - null,
+  undefined - function myFunction() {};
 ```
 
 ---
@@ -94,6 +99,10 @@ class Car {
 }
 
 let myCar = new Car('Toyota');
+{
+  brand: 'Toyota',
+}
+//^ what is created
 let yourCar = new Car('Honda');
 ```
 
@@ -118,8 +127,8 @@ class City {
     this.name = n;
   }
 }
-let montreal = new City(30000, 'Montreal');
-let sanFransisco = new City(3, 'San Fransisco');
+let montreal = new City(30000, "Montreal");
+let sanFransisco = new City(3, "San Fransisco");
 
 // What does the following output?
 console.log(montreal);
@@ -135,7 +144,7 @@ Every instance of a class has a property that matches the method name and refers
 
 ```js
 class Car {
-  noise = () => console.log('Vrooom');
+  noise = () => console.log("Vrooom");
 }
 
 let mazda = new Car();
@@ -152,10 +161,10 @@ class School {
   }
 
   noise = () => {
-    console.log('...The sound of students learning...');
+    console.log("...The sound of students learning...");
   };
 }
-let concordiaBootcamps = new School('Concordia Bootcamps');
+let concordiaBootcamps = new School("Concordia Bootcamps");
 
 // What does the following output?
 concordiaBootcamps.noise();
@@ -171,15 +180,15 @@ class Dog {
     this.voice = voice;
   }
   noise = () => {
-    console.log('woof');
+    console.log("woof");
   };
   coolOff = () => {
-    console.log('pant');
+    console.log("pant");
   };
 }
 
-let mastiff = new Dog();
-let terrier = new Dog();
+let mastiff = new Dog("WOOF");
+let terrier = new Dog("yip");
 ```
 
 ---
@@ -200,12 +209,12 @@ class Dog {
     console.log(this.voice);
   };
   coolOff = () => {
-    console.log('pant ');
+    console.log("pant ");
   };
 }
 
-let mastiff = new Dog('WOOF!');
-let terrier = new Dog('yip!yip!');
+let mastiff = new Dog("WOOF!");
+let terrier = new Dog("yip!yip!");
 ```
 
 ---
@@ -232,7 +241,23 @@ myCar.drive();
 // 1. Given this class, how would we represent its hunger level?
 // 2. How could we represent varying hunger levels based on activity?
 // 3. How about when it eats?
-class Animal {}
+class Animal {
+  constructor() {
+    this.hunger = 0;
+  }
+  run = () => {
+    this.hunger += 10;
+  };
+  eat = () => {
+    this.hunger -= 20;
+  };
+}
+const milo = new Animal();
+milo.run();
+milo.run();
+milo.run();
+milo.eat();
+console.log(milo.hunger); // = 10
 ```
 
 ---
@@ -241,7 +266,24 @@ class Animal {}
 // Exercise 2
 // 1. Track happiness, strength and hunger
 // 2. What happens when a "Human" exercises, dances, eats?
-class Human {}
+class Human {
+  constructor() {
+    this.happiness = 100;
+    this.strength = 50;
+    this.hunger = 0;
+  }
+  activity = () => {
+    this.hunger += 1;
+  };
+  eat = () => {
+    this.hunger -= 1;
+  };
+  dance = () => {
+    this.activity();
+    this.happiness += 5;
+    this.hunger += 3;
+  };
+}
 ```
 
 ---
@@ -268,10 +310,10 @@ A class can _inherit_ from another class.
 ```js
 class Human {
   constructor() {
-    this.species = 'Homo Sapien';
+    this.species = "Homo Sapien";
   }
   dance = () => {
-    console.log('disco time');
+    console.log("disco time");
   };
 }
 
@@ -287,7 +329,7 @@ class Male extends Human {
 }
 
 // Create a bob object that is a HUMAN MALE
-let bob = new Male('Bob');
+let bob = new Male("Bob");
 ```
 
 ---
